@@ -71,8 +71,28 @@ echo "<p>Результат: Папка переименована в www</p>";
 
 // Задание 3
 echo "<p><strong>Задание 3:</strong> Удалить папку www</p>";
-rmdir("www");
-echo "<p>Результат: Папка www удалена</p>";
+
+function deleteFolder($dir) {
+    if (!is_dir($dir)) return;
+    $items = scandir($dir);
+    foreach ($items as $item) {
+        if ($item == '.' || $item == '..') continue;
+        $path = $dir . '/' . $item;
+        if (is_dir($path)) {
+            deleteFolder($path);
+        } else {
+            unlink($path);
+        }
+    }
+    rmdir($dir);
+}
+
+if (is_dir("www")) {
+    deleteFolder("www");
+    echo "<p>Результат: Папка www удалена со всем содержимым</p>";
+} else {
+    echo "<p>Результат: Папка www уже удалена</p>";
+}
 
 // Задание 4
 echo "<p><strong>Задание 4:</strong> Создать папки из массива</p>";
