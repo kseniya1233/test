@@ -14,6 +14,11 @@ class Worker
     public $name;
     public $age;
     public $salary;
+
+    function getName()
+    {
+        return $this->name;
+    }
 }
 
 $worker1 = new Worker();
@@ -34,5 +39,7 @@ $sumSalary = $worker1->salary + $worker2->salary;
 $sumAge = $worker1->age + $worker2->age;
 echo "<h3>Сумма зарплат: " . $sumSalary . "</h3>";
 echo "<h3>Сумма возрастов: " . $sumAge . "</h3>";
+
+echo "<h3>Метод getName: " . $worker1->getName() . "</h3>";
 echo "</body></html>";
 ?>
