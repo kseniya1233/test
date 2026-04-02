@@ -30,5 +30,9 @@ echo "<h2>Информация о работниках</h2>";
 echo "Работник 1: " . $worker1->name . ", возраст: " . $worker1->age . ", зарплата: " . $worker1->salary . "<br>";
 echo "Работник 2: " . $worker2->name . ", возраст: " . $worker2->age . ", зарплата: " . $worker2->salary . "<br>";
 
+$sumSalary = $worker1->salary + $worker2->salary;
+$sumAge = $worker1->age + $worker2->age;
+echo "<h3>Сумма зарплат: " . $sumSalary . "</h3>";
+echo "<h3>Сумма возрастов: " . $sumAge . "</h3>";
 echo "</body></html>";
 ?>
