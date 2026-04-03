@@ -37,6 +37,11 @@ class Worker
         return $this->salary;
     }
     
+    private function checkAge()
+    {
+        return $this->age >= 18;
+    }
+    
     function setAge($age)
     {
         if ($age >= 18) {
