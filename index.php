@@ -12,8 +12,15 @@ echo "<!DOCTYPE html>
 class Worker
 {
     public $name;
-    public $age;
+    private $age;
     public $salary;
+    
+    function __construct($name, $age, $salary)
+    {
+        $this->name = $name;
+        $this->age = $age;
+        $this->salary = $salary;
+    }
     
     function getName()
     {
@@ -29,17 +36,15 @@ class Worker
     {
         return $this->salary;
     }
+    
+    function setAge($age)
+    {
+        $this->age = $age;
+    }
 }
 
-$worker1 = new Worker();
-$worker1->name = "Иван";
-$worker1->age = 25;
-$worker1->salary = 50000;
-
-$worker2 = new Worker();
-$worker2->name = "Мария";
-$worker2->age = 30;
-$worker2->salary = 60000;
+$worker1 = new Worker("Иван", 25, 50000);
+$worker2 = new Worker("Мария", 30, 60000);
 
 echo "<h2>Информация о работниках</h2>";
 echo "Работник 1: " . $worker1->getName() . ", возраст: " . $worker1->getAge() . ", зарплата: " . $worker1->getSalary() . "<br>";
@@ -53,6 +58,9 @@ echo "<h3>Сумма возрастов: " . $sumAge . "</h3>";
 echo "<h3>Метод getName: " . $worker1->getName() . "</h3>";
 echo "<h3>Метод getAge: " . $worker1->getAge() . "</h3>";
 echo "<h3>Метод getSalary: " . $worker1->getSalary() . "</h3>";
+
+$worker1->setAge(35);
+echo "<h3>После setAge(35) возраст работника 1: " . $worker1->getAge() . "</h3>";
 
 echo "</body></html>";
 ?>
