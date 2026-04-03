@@ -39,7 +39,11 @@ class Worker
     
     function setAge($age)
     {
-        $this->age = $age;
+        if ($age >= 18) {
+            $this->age = $age;
+        } else {
+            echo "Вам работать в нашей компании еще рано<br>";
+        }
     }
 }
 
@@ -59,8 +63,11 @@ echo "<h3>Метод getName: " . $worker1->getName() . "</h3>";
 echo "<h3>Метод getAge: " . $worker1->getAge() . "</h3>";
 echo "<h3>Метод getSalary: " . $worker1->getSalary() . "</h3>";
 
-$worker1->setAge(35);
-echo "<h3>После setAge(35) возраст работника 1: " . $worker1->getAge() . "</h3>";
+echo "<h3>Проверка setAge:</h3>";
+$worker1->setAge(20);
+echo "Возраст после setAge(20): " . $worker1->getAge() . "<br>";
+$worker1->setAge(16);
+echo "Возраст после setAge(16): " . $worker1->getAge() . "<br>";
 
 echo "</body></html>";
 ?>
