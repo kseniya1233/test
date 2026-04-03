@@ -24,6 +24,11 @@ class Worker
     {
         return $this->age;
     }
+    
+    function getSalary()
+    {
+        return $this->salary;
+    }
 }
 
 $worker1 = new Worker();
@@ -37,16 +42,17 @@ $worker2->age = 30;
 $worker2->salary = 60000;
 
 echo "<h2>Информация о работниках</h2>";
-echo "Работник 1: " . $worker1->getName() . ", возраст: " . $worker1->getAge() . ", зарплата: " . $worker1->salary . "<br>";
-echo "Работник 2: " . $worker2->getName() . ", возраст: " . $worker2->getAge() . ", зарплата: " . $worker2->salary . "<br>";
+echo "Работник 1: " . $worker1->getName() . ", возраст: " . $worker1->getAge() . ", зарплата: " . $worker1->getSalary() . "<br>";
+echo "Работник 2: " . $worker2->getName() . ", возраст: " . $worker2->getAge() . ", зарплата: " . $worker2->getSalary() . "<br>";
 
-$sumSalary = $worker1->salary + $worker2->salary;
+$sumSalary = $worker1->getSalary() + $worker2->getSalary();
 $sumAge = $worker1->getAge() + $worker2->getAge();
 echo "<h3>Сумма зарплат: " . $sumSalary . "</h3>";
 echo "<h3>Сумма возрастов: " . $sumAge . "</h3>";
 
 echo "<h3>Метод getName: " . $worker1->getName() . "</h3>";
 echo "<h3>Метод getAge: " . $worker1->getAge() . "</h3>";
+echo "<h3>Метод getSalary: " . $worker1->getSalary() . "</h3>";
 
 echo "</body></html>";
 ?>
