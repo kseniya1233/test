@@ -89,7 +89,7 @@ class ItalyPage extends AbstractPage
             <p>Рим и Флоренция - незабываемые впечатления!</p>
             <p>Мы посетили Колизей, Пизанскую башню, галерею Уффици.</p>
             <p>Дата поездки: Июль 2025</p>
-            <a href='?page=page' class='back-link'>← Вернуться на главную</a>
+            <a href='?page=blog' class='back-link'>← Вернуться к списку путешествий</a>
         </div>";
     }
     
@@ -110,7 +110,7 @@ class JapanPage extends AbstractPage
             <p>Токио и Киото - знакомство с японской культурой</p>
             <p>Мы посетили храм Сэнсодзи, императорский дворец, район гейш в Киото.</p>
             <p>Дата поездки: Весна 2025</p>
-            <a href='?page=page' class='back-link'>← Вернуться на главную</a>
+            <a href='?page=blog' class='back-link'>← Вернуться к списку путешествий</a>
         </div>";
     }
     
@@ -119,7 +119,6 @@ class JapanPage extends AbstractPage
         echo $this->template;
     }
 }
-
 $pageParam = $_GET['page'] ?? null;
 
 if ($pageParam === 'italy') {
@@ -138,3 +137,4 @@ if ($pageParam === 'italy') {
 
 echo "</body></html>";
 ?>
+
