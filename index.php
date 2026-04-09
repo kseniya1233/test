@@ -12,9 +12,16 @@ echo "<!DOCTYPE html>
         .date { color: #666; font-size: 12px; }
         .card img { width: 100%; height: 150px; object-fit: cover; border-radius: 5px; }
         .card a { text-decoration: none; color: inherit; display: block; }
+        nav { margin-bottom: 20px; }
+        nav a { margin-right: 15px; }
     </style>
 </head>
 <body>";
+
+echo "<nav>";
+echo "<a href='?page=page'>Страница по умолчанию</a>";
+echo "<a href='?page=blog'>Путешествия</a>";
+echo "</nav>";
 
 class Page
 {
