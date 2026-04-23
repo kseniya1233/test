@@ -32,5 +32,12 @@ class Square extends Figure implements iFigure
     private float $a;
 }
 
+class Triangle extends Figure implements iFigure
+{
+    private float $a;
+    private float $b;
+    private float $c;
+}
+
 echo "</body></html>";
 ?>
