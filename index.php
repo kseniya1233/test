@@ -27,5 +27,10 @@ class Rectangle extends Figure implements iFigure
     private float $b;
 }
 
+class Square extends Figure implements iFigure
+{
+    private float $a;
+}
+
 echo "</body></html>";
 ?>
