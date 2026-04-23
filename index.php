@@ -21,5 +21,9 @@ interface iFigure
     public function getArea(): float;
 }
 
+class Rectangle extends Figure implements iFigure
+{
+}
+
 echo "</body></html>";
 ?>
