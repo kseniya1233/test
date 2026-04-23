@@ -16,5 +16,10 @@ abstract class Figure
     abstract public function infoAbout(): string;
 }
 
+interface iFigure
+{
+    public function getArea(): float;
+}
+
 echo "</body></html>";
 ?>
