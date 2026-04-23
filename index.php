@@ -32,6 +32,12 @@ class Rectangle extends Figure implements iFigure
         $this->b = $b;
         $this->sidesCount = 4;
     }
+    
+    public function getArea(): float
+    {
+        $this->area = $this->a * $this->b;
+        return $this->area;
+    }
 }
 
 class Square extends Figure implements iFigure
@@ -42,6 +48,12 @@ class Square extends Figure implements iFigure
     {
         $this->a = $a;
         $this->sidesCount = 4;
+    }
+    
+    public function getArea(): float
+    {
+        $this->area = $this->a * $this->a;
+        return $this->area;
     }
 }
 
@@ -57,6 +69,13 @@ class Triangle extends Figure implements iFigure
         $this->b = $b;
         $this->c = $c;
         $this->sidesCount = 3;
+    }
+    
+    public function getArea(): float
+    {
+        $p = ($this->a + $this->b + $this->c) / 2;
+        $this->area = sqrt($p * ($p - $this->a) * ($p - $this->b) * ($p - $this->c));
+        return $this->area;
     }
 }
 
