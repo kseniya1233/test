@@ -38,6 +38,11 @@ class Rectangle extends Figure implements iFigure
         $this->area = $this->a * $this->b;
         return $this->area;
     }
+    
+    public function infoAbout(): string
+    {
+        return "Это класс прямоугольника. У него " . $this->sidesCount . " стороны.";
+    }
 }
 
 class Square extends Figure implements iFigure
@@ -54,6 +59,11 @@ class Square extends Figure implements iFigure
     {
         $this->area = $this->a * $this->a;
         return $this->area;
+    }
+    
+    public function infoAbout(): string
+    {
+        return "Это класс квадрата. У него " . $this->sidesCount . " стороны.";
     }
 }
 
@@ -76,6 +86,11 @@ class Triangle extends Figure implements iFigure
         $p = ($this->a + $this->b + $this->c) / 2;
         $this->area = sqrt($p * ($p - $this->a) * ($p - $this->b) * ($p - $this->c));
         return $this->area;
+    }
+    
+    public function infoAbout(): string
+    {
+        return "Это класс треугольника. У него " . $this->sidesCount . " стороны.";
     }
 }
 
