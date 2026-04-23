@@ -9,6 +9,11 @@ echo "<!DOCTYPE html>
 
 abstract class Figure
 {
+    protected float $area;
+    protected string $color;
+    protected int $sidesCount;
+    
+    abstract public function infoAbout(): string;
 }
 
 echo "</body></html>";
