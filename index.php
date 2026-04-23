@@ -23,6 +23,8 @@ interface iFigure
 
 class Rectangle extends Figure implements iFigure
 {
+    private float $a;
+    private float $b;
 }
 
 echo "</body></html>";
