@@ -4,8 +4,14 @@ echo "<!DOCTYPE html>
 <head>
     <meta charset='UTF-8'>
     <title>Лабораторная работа №15</title>
+    <style>
+        .figure { margin: 10px 0; padding: 10px; border: 1px solid #ccc; border-radius: 5px; }
+        .area { color: green; font-weight: bold; }
+    </style>
 </head>
-<body>";
+<body>
+    <h1>Лабораторная работа №15</h1>
+    <p>Абстрактные классы и интерфейсы</p>";
 
 abstract class Figure
 {
@@ -93,6 +99,47 @@ class Triangle extends Figure implements iFigure
         return "Это класс треугольника. У него " . $this->sidesCount . " стороны.";
     }
 }
+
+echo "<h2>Создание объектов и вывод информации</h2>";
+
+$rect1 = new Rectangle(5, 10);
+$rect2 = new Rectangle(3, 7);
+
+echo "<div class='figure'>";
+echo $rect1->infoAbout() . "<br>";
+echo "Площадь прямоугольника (5x10): <span class='area'>" . $rect1->getArea() . "</span><br>";
+echo "</div>";
+
+echo "<div class='figure'>";
+echo $rect2->infoAbout() . "<br>";
+echo "Площадь прямоугольника (3x7): <span class='area'>" . $rect2->getArea() . "</span><br>";
+echo "</div>";
+
+$square1 = new Square(4);
+$square2 = new Square(6);
+
+echo "<div class='figure'>";
+echo $square1->infoAbout() . "<br>";
+echo "Площадь квадрата (4x4): <span class='area'>" . $square1->getArea() . "</span><br>";
+echo "</div>";
+
+echo "<div class='figure'>";
+echo $square2->infoAbout() . "<br>";
+echo "Площадь квадрата (6x6): <span class='area'>" . $square2->getArea() . "</span><br>";
+echo "</div>";
+
+$triangle1 = new Triangle(3, 4, 5);
+$triangle2 = new Triangle(5, 5, 6);
+
+echo "<div class='figure'>";
+echo $triangle1->infoAbout() . "<br>";
+echo "Площадь треугольника (3,4,5): <span class='area'>" . $triangle1->getArea() . "</span><br>";
+echo "</div>";
+
+echo "<div class='figure'>";
+echo $triangle2->infoAbout() . "<br>";
+echo "Площадь треугольника (5,5,6): <span class='area'>" . $triangle2->getArea() . "</span><br>";
+echo "</div>";
 
 echo "</body></html>";
 ?>
