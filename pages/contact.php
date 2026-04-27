@@ -6,7 +6,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $message = htmlspecialchars($_POST['message']);
     
     $data = "$name | $email | $message | " . date('Y-m-d H:i:s') . PHP_EOL;
-    file_put_contents('messages.txt', $data, FILE_APPEND);
+    file_put_contents('../messages.txt', $data, FILE_APPEND);
     $success = 'Сообщение отправлено!';
 }
 ?>
