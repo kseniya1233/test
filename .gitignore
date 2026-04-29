@@ -13,3 +13,46 @@ config.local.php
 # Зависимости (если используете Composer)
 /vendor/
 composer.lock
+
+# Старые файлы из предыдущих лабораторных
+10.php
+11.php
+12.php
+13.php
+14.php
+action.php
+calculator.php
+style.css
+folder/
+test/
+template/
+client/
+api/
+log.txt
+# Секреты и конфиги
+.env
+.env.local
+.env.production
+config.local.php
+secrets/
+
+# PostgreSQL и бэкапы
+*.dump
+*.backup
+backups/
+dumps/
+*.log
+pg_log/
+
+# Кэш и временные файлы
+cache/
+tmp/
+temp/
+
+# IDE
+.idea/
+.vscode/
+
+# Системные
+.DS_Store
+Thumbs.db
