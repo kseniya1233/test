@@ -29,7 +29,31 @@ template/
 client/
 api/
 log.txt
-# PostgreSQL and env
+# Секреты и конфиги
 .env
 .env.local
+.env.production
+config.local.php
+secrets/
+
+# PostgreSQL и бэкапы
+*.sql
+*.dump
+*.backup
+backups/
+dumps/
 *.log
+pg_log/
+
+# Кэш и временные файлы
+cache/
+tmp/
+temp/
+
+# IDE
+.idea/
+.vscode/
+
+# Системные
+.DS_Store
+Thumbs.db
