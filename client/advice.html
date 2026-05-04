@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Случайные советы</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background: #f0f4f8; }
+        .container { max-width: 800px; margin: 0 auto; }
+        .advice-card { background: white; border-radius: 15px; padding: 25px; margin: 20px 0; box-shadow: 0 4px 6px rgba(0,0,0,0.1); text-align: center; }
+        .advice-text { font-size: 20px; color: #2c3e50; margin: 20px 0; line-height: 1.5; }
+        button { background: #3498db; color: white; border: none; padding: 12px 24px; border-radius: 8px; cursor: pointer; font-size: 16px; transition: 0.3s; }
+        button:hover { background: #2980b9; transform: scale(1.02); }
+        .save-btn { background: #2ecc71; margin-left: 10px; }
+        .save-btn:hover { background: #27ae60; }
+        .saved-list { background: white; border-radius: 15px; padding: 20px; margin: 20px 0; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .saved-item { background: #f8f9fa; padding: 15px; margin: 10px 0; border-radius: 8px; display: flex; justify-content: space-between; align-items: center; }
+        .saved-text { flex: 1; font-size: 14px; color: #555; }
+        .delete-btn { background: #e74c3c; color: white; border: none; padding: 5px 10px; border-radius: 5px; cursor: pointer; font-size: 12px; }
+        .delete-btn:hover { background: #c0392b; }
+        h1, h2 { color: #2c3e50; text-align: center; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>💡 Генератор случайных советов</h1>
+        
+        <div class="advice-card">
+            <button onclick="getAdvice()">🎲 Получить случайный совет</button>
+            <div id="advice" class="advice-text">Нажмите кнопку, чтобы получить совет</div>
+        </div>
+        
+        <h2>📚 Сохранённые советы</h2>
+        <div class="saved-list" id="savedList"></div>
+    </div>
+    
+    <script>
+        let currentAdvice = '';
+        
+        async function getAdvice() {
+            const adviceDiv = document.getElementById('advice');
+            adviceDiv.innerHTML = '🔄 Загрузка...';
+            
+            try {
+                const response = await fetch('https://api.adviceslip.com/advice');
+                const data = await response.json();
+                currentAdvice = data.slip.advice;
+                adviceDiv.innerHTML = `
+                    "${currentAdvice}"
+                    <button class="save-btn" onclick="saveAdvice()">💾 Сохранить</button>
+                `;
+            } catch (error) {
+                adviceDiv.innerHTML = `❌ Ошибка: ${error.message}`;
+            }
+        }
+        
+        function saveAdvice() {
+            if (!currentAdvice) return;
+            
+            let saved = JSON.parse(localStorage.getItem('savedAdvices') || '[]');
+            saved.push(currentAdvice);
+            localStorage.setItem('savedAdvices', JSON.stringify(saved));
+            displaySaved();
+            alert('✅ Совет сохранён!');
+        }
+        
+        function deleteAdvice(index) {
+            let saved = JSON.parse(localStorage.getItem('savedAdvices') || '[]');
+            saved.splice(index, 1);
+            localStorage.setItem('savedAdvices', JSON.stringify(saved));
+            displaySaved();
+        }
+        
+        function displaySaved() {
+            const saved = JSON.parse(localStorage.getItem('savedAdvices') || '[]');
+            const container = document.getElementById('savedList');
+            
+            if (saved.length === 0) {
+                container.innerHTML = '<p style="text-align:center; color:#999;">Нет сохранённых советов</p>';
+                return;
+            }
+            
+            container.innerHTML = saved.map((advice, index) => `
+                <div class="saved-item">
+                    <span class="saved-text">💬 ${advice}</span>
+                    <button class="delete-btn" onclick="deleteAdvice(${index})">🗑️ Удалить</button>
+                </div>
+            `).join('');
+        }
+        
+        displaySaved();
+    </script>
+</body>
+</html>
